@@ -1,0 +1,15 @@
+imports:
+  - { resource: vendor/drupol/php-conventions/config/php71/grumphp.yml }
+
+parameters:
+    tasks.phpcsfixer2.config: ./config/php_cs_fixer.config.php
+    tasks.phpcs.whitelist_patterns:
+        - src/
+    tasks.phpcs.ignore_patterns:
+        - vendor/
+        - spec/
+        - public/
+        - var/
+        - config/
+    extensions:
+      - drupol\PhpConventions\GrumphpTasksExtension

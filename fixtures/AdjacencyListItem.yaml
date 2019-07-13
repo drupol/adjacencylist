@@ -1,0 +1,5 @@
+App\Entity\AdjacencyListItem:
+    adjacencyListItem.{1..10}:
+        item: '@adjacencyList.*'
+        firstname: <firstName()>
+        lastname: <lastName()>
