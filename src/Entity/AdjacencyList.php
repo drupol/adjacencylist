@@ -36,7 +36,7 @@ class AdjacencyList
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="integer")
      * @Groups({"read"})
      */
     private $id;
@@ -51,10 +51,9 @@ class AdjacencyList
     /**
      * @ORM\OneToOne(
      *   targetEntity="App\Entity\AdjacencyListItem",
-     *   mappedBy="item",
-     *   cascade={"persist", "remove"},
-     *   orphanRemoval=true
+     *   mappedBy="item"
      * )
+     * @ORM\JoinColumn(nullable=true)
      */
     private $item;
 

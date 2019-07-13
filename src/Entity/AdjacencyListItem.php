@@ -27,7 +27,7 @@ class AdjacencyListItem {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="integer")
      * @Groups({"read"})
      */
     private $id;
@@ -38,8 +38,6 @@ class AdjacencyListItem {
      *   inversedBy="item",
      *   cascade={"persist", "remove"}
      * )
-     * @ORM\JoinColumn(nullable=false)
-     * @Groups({"read"})
      */
     private $item;
 
@@ -54,12 +52,6 @@ class AdjacencyListItem {
      * @Groups({"read"})
      */
     private $lastname;
-
-    /**
-     * @ORM\Column(type="string")
-     * @Groups({"read"})
-     */
-    private $FirstNameItem;
 
     public function getId(): ?int
     {
@@ -101,23 +93,4 @@ class AdjacencyListItem {
 
         return $this;
     }
-
-    public function getFirstNameItem(): ?AdjacencyList
-    {
-        return $this->FirstNameItem;
-    }
-
-    public function setFirstNameItem(?AdjacencyList $FirstNameItem): self
-    {
-        $this->FirstNameItem = $FirstNameItem;
-
-        // set (or unset) the owning side of the relation if necessary
-        $newFirstName = $FirstNameItem === null ? null : $this;
-        if ($newFirstName !== $FirstNameItem->getFirstName()) {
-            $FirstNameItem->setFirstName($newFirstName);
-        }
-
-        return $this;
-    }
-
 }
