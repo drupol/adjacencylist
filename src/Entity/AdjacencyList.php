@@ -42,20 +42,19 @@ class AdjacencyList
     private $id;
 
     /**
+     * @ORM\OneToOne(
+     *   targetEntity="App\Entity\AdjacencyListItem",
+     *   mappedBy="item"
+     * )
+     */
+    private $item;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\AdjacencyList")
      * @ORM\JoinColumn(referencedColumnName="id", nullable=true)
      * @Groups({"read"})
      */
     private $parent;
-
-    /**
-     * @ORM\OneToOne(
-     *   targetEntity="App\Entity\AdjacencyListItem",
-     *   mappedBy="item"
-     * )
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $item;
 
     public function getId(): ?int
     {

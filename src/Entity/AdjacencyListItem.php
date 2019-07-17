@@ -35,8 +35,7 @@ class AdjacencyListItem {
     /**
      * @ORM\OneToOne(
      *   targetEntity="App\Entity\AdjacencyList",
-     *   inversedBy="item",
-     *   cascade={"persist", "remove"}
+     *   inversedBy="item"
      * )
      */
     private $item;
