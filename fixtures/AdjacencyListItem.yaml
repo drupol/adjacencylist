@@ -1,5 +1,5 @@
 App\Entity\AdjacencyListItem:
-    adjacencyListItem.{1..10}:
-        item: '@adjacencyList.*'
+    adjacencyListItem__{1..10}:
+        item: '@adjacencyList__<current()>'
         firstname: <firstName()>
         lastname: <lastName()>
