@@ -75,13 +75,34 @@ ALTER TABLE adjacency_list_item
    REFERENCES adjacency_list (id)
 ```
 
+# Issue
+
+Find why we are not able to validate the schema.
+
+* Run: `./bin/console doctrine:schema:validate`
+
+# Usage
+
 In order to get started with this, do:
 
 * Run: `composer install`
-* Update the `.env` file and set the URL to your database
+* Update the `.env` file and set the URL to your database, mysql or mariadb is advised here.
 * Run: `./bin/console doctrine:database:create`
 * Run: `./bin/console doctrine:schema:update --force --complete --dump-sql`
 
 To generate the fixtures in the database, do:
 
 * Run: `./bin/console hautelook:fixtures:load`
+
+### More informations:
+
+Find the difference between the database schema and the entities:
+
+* Run: 
+```shell
+bin/console do:da:dr --force                                                                                                    
+bin/console do:da:cr
+bin/console do:sc:up --force
+bin/console do:sc:val
+bin/console do:sc:up --dump-sql
+```
